@@ -1,3 +1,24 @@
 .header {
-    background-color: red;
+    background-image: linear-gradient(to right, rgb(0 0 0/.8), rgb(0 0 0/.7)), url(../public/img/header.jpg);
+    background-size: cover;
+    background-position: 50%;
+    padding: 5rem 0;
+}
+.logo{
+    cursor: pointer;
+
+}
+
+.barra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navegacion {
+    margin-top: 5rem;
+}
+
+.navegacion a{
+    color: var(--blanco);
 }
