@@ -6,11 +6,11 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className='container'>
-        <div className={styles.barra}>
+        <div className={styles.bar}>
           <Link href='/' >
             <Image className={styles.logo} width={400} height={100} src='/img/logo.svg' alt='Imagen Logo'/>
           </Link>
-          <nav className={styles.navegacion}>
+          <nav className={styles.navegation}>
             <Link href='/'>Inicio</Link>
             <Link href='/nosotros'>Nosotros</Link>
             <Link href='/blog'>Blog</Link>

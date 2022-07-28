@@ -1,12 +1,12 @@
 import Link from 'next/link'
 import Layout from "../components/Layout";
 
-
-export default function Home() {
+const Blog = () => {
   return (
-    <Layout page="Inicio">
-      <h1>Learning Next.JS</h1> 
+    <Layout page='Blog'>
+
     </Layout>
-    
   )
 }
+
+export default Blog
