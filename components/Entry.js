@@ -1,0 +1,27 @@
+import Link from 'next/link'
+import Image from 'next/image'
+import { dateFormat } from '../helpers'
+import styles from '../styles/Entry.module.css'
+
+const Entry = ({entry}) => {
+    const { title, resume, image, published_at, id, content, url} = entry 
+
+    return (
+        <article>
+            <Image priority='true' layout='responsive' width={800} height={600} src={image.url} alt={`imagen blog ${title}`}></Image>
+
+            <div className={styles.content}>
+                <h3>{title}</h3>
+                <p className={styles.date}>{dateFormat(published_at)}</p>
+                <p className={styles.resume}>{resume}</p>
+                <Link href={`/blog/${url}`}>
+                    <a className={styles.link}>
+                        Reading Entry 
+                    </a>
+                </Link>
+            </div>  
+        </article>
+    )
+}
+
+export default Entry
