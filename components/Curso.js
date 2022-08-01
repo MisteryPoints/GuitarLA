@@ -1,4 +1,6 @@
+import Link from 'next/link'
 import styles from '../styles/Cursos.module.css'
+
 
 const Curso = ({cursos}) => {
     const {title, content, image} = cursos
@@ -8,9 +10,11 @@ const Curso = ({cursos}) => {
             <div className={`container ${styles.grid}`}> 
                 <div className={styles.content} >
                     <h2 className='heading'>{title}</h2>
-                    <p>{content}</p>
-
-                    <a href=''>Más Información</a>
+                    <p className={styles.text}>{content}</p>
+                    <Link  href={'/blog'}>
+                        <a className={styles.link}>Más Información en Nuestro Blog</a>
+                    </Link>
+                    
                 </div>
             </div>
 

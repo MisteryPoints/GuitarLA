@@ -1,12 +1,12 @@
 import Layout from "../components/Layout";
-import List from '../components/List';
+import ListGuitar from '../components/ListGuitar';
 
 const Tienda = ({guitars, result}) => {
   return (
     <Layout page='Tienda Virtual'>
       <main className='container'>
         <h1 className='heading'>Nuestra colección</h1>
-        <List guitars={guitars}/>
+        <ListGuitar guitars={guitars}/>
       </main>
     </Layout>
   )

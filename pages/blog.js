@@ -1,7 +1,5 @@
-import { useEffect } from "react";
 import Layout from "../components/Layout";
-import Entry from "../components/Entry";
-import styles from '../styles/Blog.module.css'
+import ListBlog from "../components/ListBlog";
 
 const Blog = ({entrys}) => {
   
@@ -9,15 +7,7 @@ const Blog = ({entrys}) => {
     <Layout page='Blog'>
       <main className="container">
         <h2 className="heading">Blog</h2>
-
-        <div className={styles.blog}>
-          {entrys.map(entry => (
-            <Entry
-              key={entry.id}
-              entry={entry}
-            />
-          ))}
-        </div>
+        <ListBlog entrys={entrys}/> 
       </main>
     </Layout>
   )
