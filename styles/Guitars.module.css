@@ -90,5 +90,6 @@
 
 .form input[type='submit']:hover{
     background-color: var(--black);
-    color: white
+    color: var(--white);
+    cursor: pointer;
 }

@@ -3,9 +3,9 @@ import ListGuitar from "../components/ListGuitar"
 import Curso from '../components/Curso'
 import ListBlog from '../components/ListBlog'
 
-export default function Home({guitars, cursos, entrys}) {
+export default function Home({guitars, cursos, entrys}) { 
   return (
-    <Layout page="Inicio" guitar={guitars[2]}>
+    <Layout page="Inicio" guitar={guitars[0]}>
       <header></header>
       <main className='container'>
         <h1>Nuestra colección</h1>

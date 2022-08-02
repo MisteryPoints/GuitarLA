@@ -9,7 +9,7 @@ const Entry = ({entry}) => {
     
     return (
         <article>
-            <Image priority='true' layout='responsive' width={800} height={600} src={image.url} alt={`imagen blog ${title}`}/>
+            <Image layout='responsive' width={800} height={600} src={image.url} alt={`imagen blog ${title}`}/>
 
             <div className={styles.content}>
                 <h3>{title}</h3>

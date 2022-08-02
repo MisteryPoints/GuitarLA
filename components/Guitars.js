@@ -8,7 +8,7 @@ const Guitars = ({guitar}) => {
 
     return (
         <div className={styles.guitar}>
-            <Image priority='true'  layout="responsive" width={180} height={350} src={image.url} alt={`Imagen Guitarra ${name}`}/>
+            <Image layout="responsive" width={180} height={350} src={image.url} alt={`Imagen Guitarra ${name}`}/>
             <div className={styles.content}>
                 <h3>{name}</h3>
                 <p className={styles.description}>{description}</p>

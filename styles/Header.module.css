@@ -67,7 +67,7 @@
 
 .link{
     margin-top: 2rem;
-    display: block;
+    display: inline-block;
     text-decoration: none;
     text-align: center;
     text-transform: uppercase;
@@ -78,6 +78,8 @@
     padding: 1rem 5rem;
     transition-property: background-color;
     transition-duration: .25s;
+    width: 200px;
+    align-items: center;
 }
 
 .link:hover{ 
@@ -89,6 +91,7 @@
 .guitar{
     display:none;
 }
+ 
 
 @media (min-width: 768px){
     .bar{
@@ -100,21 +103,52 @@
     }
     .model{
         text-align: left;
-        width: 50%;
+        width: 65%;
+    } 
+    .model p:first-of-type{
+        -webkit-line-clamp: 2;
+        overflow: hidden;
     } 
     
+} 
+
+@media (max-width: 615px){  
+    .model{
+        height: 0;
+        width: 0;
+        opacity: 0;
+    }
+    .header{
+        height: 300px;
+    }
 }
 
-@media (min-width: 992px){ 
-    
+@media (min-width: 992px){  
     .guitar{ 
       display: block;
-      position: sticky;
+      position: absolute;
       right: 0;
-    } 
-    
-    .model p:first-of-type{
-      -webkit-line-clamp: 2;
-      overflow: hidden;
+      bottom: 35.1rem;
+      animation-name: mostrarImagen;
+      animation-duration: 0.75s;
+      animation-iteration-count: 1;
+      animation-delay: 0s;
+      animation-timing-function: ease-in-out;
+    }  
+}
+
+@keyframes mostrarImagen {
+    0%{
+        opacity: 0;
+        transform: translateX(-3rem);
     }
-  }
+
+    60%{
+        opacity: 0; 
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0rem);
+    }
+}

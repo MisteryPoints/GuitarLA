@@ -20,12 +20,17 @@ const Header = ({guitar}) => {
             <Link href='/nosotros'>Nosotros</Link>
             <Link href='/blog'>Blog</Link>
             <Link href='/tienda'>Tienda</Link>
+            <Link href='/carrito'>
+              <a>
+                <Image layout='fixed' width={30} height={25} src="/img/carrito.png" alt="Imagen carrito"/>
+              </a>
+            </Link>
           </nav>
         </div>
         {guitar && (
           <div className={styles.model}>
             <h2>{guitar.name}</h2>
-            <p className='model'>{guitar.description}</p>
+            <p>{guitar.description}</p>
             <p className={styles.price}>${guitar.price}</p>
             <Link href={`/guitars/${guitar.url}`} >
               <a className={styles.link}>Ver Producto</a>
@@ -35,16 +40,15 @@ const Header = ({guitar}) => {
       </div>
       {router.pathname === '/' && (
         <div className={`guitar ${styles.guitar}`}> 
-          <Image layout='fixed' height={600} width={400}  src='/img/header_guitarra.png' alt='imagen header guitarra'/>
+          <Image   layout='fixed' height={600} width={400}  src='/img/header_guitarra.png' alt='imagen header guitarra'/> 
           <style jsx>{`
-          @media (min-width: 768px){
-            .model{
-              -webkit-line-clamp: 1;
+            .header{ 
+              height: 600px;
             }
-          } 
           `}</style>
         </div>
-      )}
+       
+      )}   
     </header>
   )
 }

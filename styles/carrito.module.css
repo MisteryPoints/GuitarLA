@@ -1,0 +1,58 @@
+.content{
+    display: grid;
+    gap: 4rem;
+}
+
+@media (min-width: 768px){
+   .content{
+    grid-template-columns: 3fr 2fr;
+   }
+}
+
+.carrito{
+    padding: 3rem 0;
+
+}
+
+.product{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 4rem;
+    align-items: center;
+    border-bottom: 1px solid #cfcfcf;
+}
+
+.product:last-of-type{ 
+    border-bottom: none;
+}
+
+.product p{
+    margin: 0 0 1rem 0;
+}
+
+.name{
+    font-weight: 700;
+    font-size: 2.2rem;
+}
+
+.cantidad{
+
+}
+
+.price {
+    font-weight: 700;
+    color: var(--primary);
+
+}
+
+.price span{
+    font-size: 2.4rem;
+}
+
+.subtotal{
+    font-weight: 700;
+}
+
+.subtotal span{
+    font-size: 2.4rem;
+}
