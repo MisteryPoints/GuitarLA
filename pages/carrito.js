@@ -3,8 +3,34 @@ import Layout from "../components/Layout"
 import Image from "next/image"
 import styles from "../styles/carrito.module.css" 
 
-const Carrito = ({ carrito }) => {
+const Carrito = ({ carrito, agregarCarrito }) => {
     const [productos, setProductos] = useState([])
+    const {id, image, name, price, cantidad} = carrito
+
+    const addCanti = e => {
+        const guitarSelected = {
+            id,
+            image,
+            name,
+            price,
+            cantidad: cantidad+1
+        }
+
+        agregarCarrito(guitarSelected)
+    }
+
+    const remCanti = e => {
+        const guitarSelected = {
+            id,
+            image,
+            name,
+            price,
+            cantidad: cantidad-1
+        }
+
+        agregarCarrito(guitarSelected)
+    }
+
     return (
         <Layout page={'Carrito de compras'}>
             <h1 className="heading">Carrito</h1>
@@ -22,8 +48,13 @@ const Carrito = ({ carrito }) => {
                                         
                                     </div>
                                     <p className={styles.cantidad}>
-                                        Cantidad: {product.cantidad}
+                                        Cantidad: 
                                     </p>
+                                    <div>
+                                        <p className={styles.alt} onClick={addCanti}>-</p>
+                                        <p className={styles.cantidad}>{product.cantidad}</p>
+                                        <p className={styles.alt} onClick={remCanti}>+</p>
+                                    </div>
                                     <p className={styles.price}>$<span>{product.price}</span></p>
                                     <p className={styles.subtotal}>
                                         Subtotal: $<span>{product.price * product.cantidad}</span>

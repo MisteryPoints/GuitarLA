@@ -15,6 +15,8 @@ body {
   font-size: 2rem;
   font-family: var(--primary-font);
   line-height: 1.5;
+  overflow-x: hidden;
+  position: relative;
 }
 img {
   max-width: 100%;
@@ -32,3 +34,106 @@ img {
   color: var(--primary);
   margin: 5rem 0;
 }
+
+.inner{ 
+  position: relative;
+  height: auto;
+}
+
+.move{
+  position: fixed;
+  z-index: 10;
+  top: 25px;
+  right: 30px;
+  border-radius: 12px;
+  background: #FFF;
+  padding: 20px 35px 20px 25px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  border-left: 6px solid var(--primary);
+  overflow: hidden;
+  transform: translateX(calc(100% + 30px));
+  transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.35); 
+}
+
+.move.active{
+  transform: translateX(0%);
+}
+
+.move .added{
+  display: flex;
+  align-items: center;
+}
+
+.added .check{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+  background-color: var(--primary);
+  color: #FFF;
+  font-size: 20px;
+  border-radius: 50%;
+}
+
+.added .alert{
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+}
+
+.alert .text{
+  font-size: 20px;
+  font-weight: 600;
+  color: #666666;
+}
+
+.alert .text.text-1{
+  font-weight: 600;
+  color: #333;
+}
+
+.move .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  padding: 5px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.move .close:hover{
+  opacity: 1;
+}
+
+.move .progress{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background-color: #ddd;
+
+}
+
+
+.progress.active:before{
+  animation: progress 5s linear forwards;
+}
+
+@keyframes progress{
+  100%{
+    right: 100%;
+  } 
+}
+
+.move .progress:before{
+  content:'';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--primary);
+}
+ 

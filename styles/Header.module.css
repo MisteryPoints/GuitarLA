@@ -23,6 +23,8 @@
     gap: 2rem;
     position: relative;
     z-index: 2;
+    padding: 0;
+    text-align: center;
 }
 
 .navegation a{
@@ -32,13 +34,17 @@
     font-weight: 700;
     text-transform: uppercase;
     padding: .5rem;
-    transition-property: background-color;
-    transition-duration: .3s;
+    transition-property: background-color, border-radius;
+    transition-duration: .3s; 
+    border: 1px solid transparent;  
+    padding-top: .7rem;
 }
+
 .navegation a:hover{
     background-color: var(--primary); 
-    
+    border-radius: 10px;
 }
+
 
 .model{
     color: var(--white);
@@ -128,7 +134,8 @@
       display: block;
       position: absolute;
       right: 0;
-      bottom: 35.1rem;
+      /* bottom: 35.1rem; */ /*Big Screen*/
+      bottom: 0.7rem;
       animation-name: mostrarImagen;
       animation-duration: 0.75s;
       animation-iteration-count: 1;
@@ -152,3 +159,4 @@
         transform: translateX(0rem);
     }
 }
+ 

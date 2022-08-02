@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react'
 import '../styles/normalize.css'
-import '../styles/globals.css'
+import '../styles/globals.css' 
+import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CSS
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
+ 
 
 function MyApp({ Component, pageProps }) {
-  const [carrito, setCarrito] = useState([])
+  const [carrito, setCarrito] = useState([]) 
 
   useEffect(() => {
     const carritoLS = JSON.parse( localStorage.getItem('carrito') ) ?? []
@@ -28,7 +32,17 @@ function MyApp({ Component, pageProps }) {
     } 
   }
 
-  return <Component {...pageProps} carrito={carrito} agregarCarrito={agregarCarrito} />
+  const updateCantidad = producto => {
+    const carritoUpdated = carrito.map ( articulo => {
+      if ( articulo.id === producto.id ) {
+        articulo.cantidad = producto.cantidad
+      }
+      return articulo
+    })
+    setCarrito(carritoUpdated)
+  }
+
+  return <Component {...pageProps} carrito={carrito} agregarCarrito={agregarCarrito}/>
 }
 
 export default MyApp

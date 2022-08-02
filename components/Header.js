@@ -2,6 +2,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import styles from '../styles/Header.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'   
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 
 const Header = ({guitar}) => {
   const router = useRouter()
@@ -22,7 +24,7 @@ const Header = ({guitar}) => {
             <Link href='/tienda'>Tienda</Link>
             <Link href='/carrito'>
               <a>
-                <Image layout='fixed' width={30} height={25} src="/img/carrito.png" alt="Imagen carrito"/>
+                <FontAwesomeIcon icon={faCartShopping}size='xl'/>
               </a>
             </Link>
           </nav>
@@ -40,7 +42,7 @@ const Header = ({guitar}) => {
       </div>
       {router.pathname === '/' && (
         <div className={`guitar ${styles.guitar}`}> 
-          <Image   layout='fixed' height={600} width={400}  src='/img/header_guitarra.png' alt='imagen header guitarra'/> 
+          <Image   layout='fixed' height={600} /*width={400} remove in big screen*/width={350} src='/img/header_guitarra.png' alt='imagen header guitarra'/> 
           <style jsx>{`
             .header{ 
               height: 600px;

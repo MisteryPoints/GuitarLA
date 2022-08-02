@@ -36,7 +36,14 @@
 }
 
 .cantidad{
+    display: inline;
+    padding: 1rem;
+}
 
+.alt{
+    display: inline;
+    padding: 1rem;
+    cursor: pointer;
 }
 
 .price {
