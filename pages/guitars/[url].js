@@ -58,7 +58,9 @@ const Product = ({guitar, agregarCarrito}) => {
                         </select>
                         <input type='submit' value='Agregar al Carrito'/>
                     </form> 
+                    <div className='inner'> 
                         <ArticleAdded added={added} setAdded={setAdded}/> 
+                    </div>
                 </div>
             </div>
         </Layout>

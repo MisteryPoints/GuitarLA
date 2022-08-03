@@ -6,6 +6,7 @@
 @media (min-width: 768px){
    .content{
     grid-template-columns: 3fr 2fr;
+    align-items: flex-start;
    }
 }
 
@@ -16,6 +17,7 @@
 
 .product{
     display: grid;
+    position: relative;
     grid-template-columns: 1fr 3fr;
     gap: 4rem;
     align-items: center;
@@ -63,3 +65,21 @@
 .subtotal span{
     font-size: 2.4rem;
 }
+
+.delete{
+    all: unset;
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+    font-weight: bold;
+}
+ 
+.delete:hover{ 
+    cursor: pointer;
+}
+
+.resumen{
+    background-color: #dfdfdf;
+    padding: 3rem;
+    border-radius: 1rem;
+} 

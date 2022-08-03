@@ -16,7 +16,6 @@ body {
   font-family: var(--primary-font);
   line-height: 1.5;
   overflow-x: hidden;
-  position: relative;
 }
 img {
   max-width: 100%;
@@ -36,8 +35,7 @@ img {
 }
 
 .inner{ 
-  position: relative;
-  height: auto;
+  position: relative; 
 }
 
 .move{
@@ -137,3 +135,40 @@ img {
   background-color: var(--primary);
 }
  
+.invalidC{
+  box-sizing: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(214, 214, 214, 0.7);
+  border-radius: 10px;
+  border: 2px solid red;
+  border-bottom: 0px; 
+  border-top: 0px;
+  height: 40px;
+  width: 450px;
+  padding: .5rem 0;
+  transition-property: background-color;
+  transition-duration: 1s;
+  padding-bottom: -10rem;
+  cursor: default;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.35); 
+}
+
+.invalidC:hover{
+  background-color: rgb(170, 170, 170);
+}
+
+.invalidC.invalidCactive{ 
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.invalid{
+    font-size: 2.6rem; 
+    color: red;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,35 +1,19 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Layout from "../components/Layout"
 import Image from "next/image"
+import InvalidC from "../components/InvalidC"
 import styles from "../styles/carrito.module.css" 
 
-const Carrito = ({ carrito, agregarCarrito }) => {
-    const [productos, setProductos] = useState([])
-    const {id, image, name, price, cantidad} = carrito
+const Carrito = ({ carrito, handleSum, handleRes, deleteProduct, invalid }) => {   
 
-    const addCanti = e => {
-        const guitarSelected = {
-            id,
-            image,
-            name,
-            price,
-            cantidad: cantidad+1
-        }
+    const [total, setTotal] = useState(0)
 
-        agregarCarrito(guitarSelected)
-    }
+    useEffect(() => { 
+        const calculoTotal = carrito.reduce( (total, producto) => total + (producto.cantidad * producto.price), 0)
 
-    const remCanti = e => {
-        const guitarSelected = {
-            id,
-            image,
-            name,
-            price,
-            cantidad: cantidad-1
-        }
-
-        agregarCarrito(guitarSelected)
-    }
+        setTotal(calculoTotal)
+     }, [carrito])
+    
 
     return (
         <Layout page={'Carrito de compras'}>
@@ -42,35 +26,37 @@ const Carrito = ({ carrito, agregarCarrito }) => {
                                 <div>
                                     <Image layout="responsive" width={250} height={480} src={product.image} alt={product.name}></Image>
                                 </div>
-                                <div>
+                                <div> 
+                                    <InvalidC invalid={invalid}/> 
                                     <p className={styles.name}>{product.name}</p>
-                                    <div>
-                                        
-                                    </div>
                                     <p className={styles.cantidad}>
                                         Cantidad: 
                                     </p>
                                     <div>
-                                        <p className={styles.alt} onClick={addCanti}>-</p>
+                                        <p className={styles.alt} onClick={() => handleRes()}>-</p>
                                         <p className={styles.cantidad}>{product.cantidad}</p>
-                                        <p className={styles.alt} onClick={remCanti}>+</p>
+                                        <p className={styles.alt} onClick={() => handleSum()}>+</p>
                                     </div>
                                     <p className={styles.price}>$<span>{product.price}</span></p>
                                     <p className={styles.subtotal}>
                                         Subtotal: $<span>{product.price * product.cantidad}</span>
                                     </p>
                                 </div>
-                                <div>
-
-                                </div>
+                                <button type="button" className={styles.delete} onClick={() => deleteProduct(product.id)}>x</button>
                             </div>
                         ))
                     )}
                 </div>
-                <div>
-
-                </div>
-
+                <div className={styles.resumen}>
+                    {total > 0 ? (
+                        <>
+                            <h3>Resumen del Pedido</h3>
+                            <p>Total a Pagar: ${total}</p>
+                        </>
+                    ): (
+                        <h3>No hay Productos</h3>
+                    )}
+                </div> 
             </main>
         </Layout>
     )

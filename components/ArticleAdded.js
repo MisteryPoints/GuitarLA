@@ -7,6 +7,11 @@ const ArticleAdded = ({added, setAdded}) => {
     const handleSubmit = e => { 
         setAdded(false)
     }
+    if (added === true){ 
+        setTimeout(() => {
+            setAdded(false)
+        }, 5000);
+    }
 
   return (
     <div className={`move ${added && 'active'}`}> 

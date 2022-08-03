@@ -101,7 +101,7 @@
 
 @media (min-width: 768px){
     .bar{
-        flex-direction: row;
+        flex-direction: row;    
         justify-content: space-between;
     }
     .navegation {
@@ -134,8 +134,8 @@
       display: block;
       position: absolute;
       right: 0;
-      /* bottom: 35.1rem; */ /*Big Screen*/
-      bottom: 0.7rem;
+      bottom: 35.1rem; /*Big Screen*/
+      /* bottom: 0.7rem; */
       animation-name: mostrarImagen;
       animation-duration: 0.75s;
       animation-iteration-count: 1;
@@ -147,10 +147,10 @@
 @keyframes mostrarImagen {
     0%{
         opacity: 0;
-        transform: translateX(-3rem);
+        transform: translateX(-5rem);
     }
 
-    60%{
+    40%{
         opacity: 0; 
     }
 

@@ -41,8 +41,8 @@ const Header = ({guitar}) => {
         )}
       </div>
       {router.pathname === '/' && (
-        <div className={`guitar ${styles.guitar}`}> 
-          <Image   layout='fixed' height={600} /*width={400} remove in big screen*/width={350} src='/img/header_guitarra.png' alt='imagen header guitarra'/> 
+        <div className={styles.guitar}> 
+          <Image   layout='fixed' height={600} width={350} src='/img/header_guitarra.png' alt='imagen header guitarra'/> 
           <style jsx>{`
             .header{ 
               height: 600px;

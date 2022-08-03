@@ -8,7 +8,8 @@ config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatic
 
 function MyApp({ Component, pageProps }) {
   const [carrito, setCarrito] = useState([]) 
-
+  const [invalid, setInvalid] = useState(false)
+ 
   useEffect(() => {
     const carritoLS = JSON.parse( localStorage.getItem('carrito') ) ?? []
     setCarrito(carritoLS)
@@ -30,19 +31,39 @@ function MyApp({ Component, pageProps }) {
     } else {
       setCarrito([...carrito, producto])
     } 
+  } 
+
+  const handleRes = () => {
+      setCarrito(articulos =>
+          articulos.map(carrito => { 
+              if(carrito.cantidad > 1){
+                  return {...carrito, cantidad: (carrito.cantidad - 1)}
+              } 
+              setTimeout(() => setInvalid(true)  , 0)       
+              return carrito 
+          })
+      ) 
+      
   }
 
-  const updateCantidad = producto => {
-    const carritoUpdated = carrito.map ( articulo => {
-      if ( articulo.id === producto.id ) {
-        articulo.cantidad = producto.cantidad
-      }
-      return articulo
-    })
+  
+  if(invalid === true){setTimeout(() =>  setInvalid(false) , 2000) }
+
+
+  const handleSum = () => {
+      setCarrito(articulos =>
+          articulos.map(carrito => { 
+              return {...carrito, cantidad: (carrito.cantidad + 1)}
+          })
+      )
+  }
+
+  const deleteProduct = id => {
+    const carritoUpdated = carrito.filter( article => article.id !== id)
     setCarrito(carritoUpdated)
   }
 
-  return <Component {...pageProps} carrito={carrito} agregarCarrito={agregarCarrito}/>
+  return <Component {...pageProps} carrito={carrito} agregarCarrito={agregarCarrito} setCarrito={setCarrito} handleRes={handleRes} handleSum={handleSum} deleteProduct={deleteProduct} invalid={invalid}  />
 }
 
 export default MyApp
