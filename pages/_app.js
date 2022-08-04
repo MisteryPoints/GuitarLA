@@ -1,23 +1,23 @@
 import { useState, useEffect } from 'react'
 import '../styles/normalize.css'
 import '../styles/globals.css' 
+import Cookie from 'js-cookie' 
+import { parseCookies } from '../helpers/parseCookies'
 import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CSS
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
  
 
-function MyApp({ Component, pageProps }) {
-  const [carrito, setCarrito] = useState([]) 
+function MyApp({ Component, pageProps, initialCarritoValue }) { 
+  const [carrito, setCarrito] = useState( () => 
+    (initialCarritoValue === undefined) ? [] :
+    JSON.parse(initialCarritoValue )
+  ) 
   const [invalid, setInvalid] = useState(false)
  
-  useEffect(() => {
-    const carritoLS = JSON.parse( localStorage.getItem('carrito') ) ?? []
-    setCarrito(carritoLS)
-  }, [])
-
-  useEffect(() => {
-    localStorage.setItem('carrito', JSON.stringify(carrito))
-  }, [carrito])
+  useEffect(() => { 
+    Cookie.set('carrito', JSON.stringify(carrito))
+  }, [carrito]) 
 
   const agregarCarrito = producto => {
     if (carrito.some( articulo => articulo.id === producto.id)) {
@@ -64,6 +64,14 @@ function MyApp({ Component, pageProps }) {
   }
 
   return <Component {...pageProps} carrito={carrito} agregarCarrito={agregarCarrito} setCarrito={setCarrito} handleRes={handleRes} handleSum={handleSum} deleteProduct={deleteProduct} invalid={invalid}  />
+}
+
+MyApp.getInitialProps = async (appContext) => {
+  const req = appContext.ctx.req
+  const cookies = parseCookies(req)  
+  return {
+    initialCarritoValue: cookies.carrito
+  }
 }
 
 export default MyApp
