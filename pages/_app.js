@@ -20,9 +20,9 @@ function MyApp({ Component, pageProps, initialCarritoValue }) {
   }, [carrito]) 
 
   const agregarCarrito = producto => {
-    if (carrito.some( articulo => articulo.id === producto.id)) {
+    if (carrito.some( articulo => articulo._id === producto._id)) {
       const carritoUpdated = carrito.map ( articulo => {
-        if ( articulo.id === producto.id ) {
+        if ( articulo._id === producto._id ) {
           articulo.cantidad = producto.cantidad + articulo.cantidad
         }
         return articulo
@@ -59,7 +59,7 @@ function MyApp({ Component, pageProps, initialCarritoValue }) {
   }
 
   const deleteProduct = id => {
-    const carritoUpdated = carrito.filter( article => article.id !== id)
+    const carritoUpdated = carrito.filter( article => article._id !== id)
     setCarrito(carritoUpdated)
   }
 

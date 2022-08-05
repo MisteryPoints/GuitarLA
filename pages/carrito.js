@@ -22,7 +22,7 @@ const Carrito = ({ carrito, handleSum, handleRes, deleteProduct, invalid }) => {
                 <div className={styles.carrito}>
                     {carrito.length === 0 ? 'Carito Vacío' : (
                         carrito.map( product => (
-                            <div key={product.id} className={styles.product}>
+                            <div key={product._id} className={styles.product}>
                                 <div>
                                     <Image layout="responsive" width={250} height={480} src={product.image} alt={product.name}></Image>
                                 </div>
@@ -42,7 +42,7 @@ const Carrito = ({ carrito, handleSum, handleRes, deleteProduct, invalid }) => {
                                         Subtotal: $<span>{product.price * product.cantidad}</span>
                                     </p>
                                 </div>
-                                <button type="button" className={styles.delete} onClick={() => deleteProduct(product.id)}>x</button>
+                                <button type="button" className={styles.delete} onClick={() => deleteProduct(product._id)}>x</button>
                             </div>
                         ))
                     )}

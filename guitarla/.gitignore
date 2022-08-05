@@ -78,7 +78,7 @@ $RECYCLE.BIN/
 
 *#
 ssl
-.idea
+._idea
 nbproject
 public/uploads/*
 !public/uploads/.gitkeep
@@ -107,6 +107,7 @@ coverage
 ############################
 
 .env
+.env.example
 license.txt
 exports
 *.cache

@@ -7,7 +7,7 @@ const ListBlog = ({entrys}) => {
         <div className={styles.blog}>
             {entrys.map(entry => (
                 <Entry
-                key={entry.id}
+                key={entry._id}
                 entry={entry}
                 />
             ))}
