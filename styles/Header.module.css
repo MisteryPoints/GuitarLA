@@ -118,7 +118,7 @@
     
 } 
 
-@media (max-width: 615px){  
+@media (max-width: 615px){   
     .model{
         height: 0;
         width: 0;
@@ -134,7 +134,7 @@
       display: block;
       position: absolute;
       right: 0;
-      bottom: 35.1rem; /*Big Screen*/
+      bottom: 31rem; /*Big Screen*/
       /* bottom: 0.7rem; */
       animation-name: mostrarImagen;
       animation-duration: 0.75s;
