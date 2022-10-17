@@ -1,20 +1,30 @@
 import { useState, useEffect } from "react"
 import Layout from "../components/Layout"
 import Image from "next/image"
+import Link from 'next/link'
 import InvalidC from "../components/InvalidC"
+import ArticleBought from "../components/ArticleBought"
 import styles from "../styles/carrito.module.css" 
 
-const Carrito = ({ carrito, handleSum, handleRes, deleteProduct, invalid }) => {   
+
+const Carrito = ({ carrito, handleSum, handleRes, deleteProduct, invalid, setCarrito }) => {   
 
     const [total, setTotal] = useState(0)
+    const [bought, setBought] = useState(false)
 
     useEffect(() => { 
         const calculoTotal = carrito.reduce( (total, producto) => total + (producto.cantidad * producto.price), 0)
 
         setTotal(calculoTotal)
-     }, [carrito])
+    }, [carrito])
 
-     console.log(carrito)
+     
+    const handleSubmit = () => { 
+        if(carrito.length){ 
+            setCarrito([])
+            setBought(true)
+        }
+    }
     
 
     return (
@@ -57,7 +67,12 @@ const Carrito = ({ carrito, handleSum, handleRes, deleteProduct, invalid }) => {
                         </>
                     ): (
                         <h3>No hay Productos</h3>
-                    )}
+                    )} 
+                    <button type="button" onClick={handleSubmit} className={styles.link}>Realizar Compra</button> 
+                    
+                    <div className='inner'> 
+                        <ArticleBought bought={bought} setBought={setBought}/> 
+                    </div>
                 </div> 
             </main>
         </Layout>

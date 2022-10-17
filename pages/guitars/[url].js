@@ -29,11 +29,6 @@ const Product = ({guitar, agregarCarrito}) => {
         agregarCarrito(guitarSelected)
         setCantidad(0)
         setAdded(true)
-        if (added === true){ 
-            setTimeout(() => {
-                setAdded(false)
-            }, 5000);
-        }
     }
 
     return (

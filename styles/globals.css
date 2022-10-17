@@ -2,6 +2,7 @@
   --primary: #e99401;
   --black: #262626;
   --white: #FFF;
+  --sky: rgb(0, 162, 255);
   --primary-font: 'Outfit', sans-serif;
 }
 html {
@@ -52,12 +53,30 @@ img {
   transform: translateX(calc(100% + 30px));
   transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.35); 
 }
+.move2{
+  position: fixed;
+  z-index: 10;
+  top: 25px;
+  right: 30px;
+  border-radius: 12px;
+  background: #FFF;
+  padding: 20px 35px 20px 25px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  border-left: 6px solid var(--sky);
+  overflow: hidden;
+  transform: translateX(calc(100% + 30px));
+  transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.35); 
+}
 
 .move.active{
   transform: translateX(0%);
 }
 
 .move .added{
+  display: flex;
+  align-items: center;
+}
+.move .bought{
   display: flex;
   align-items: center;
 }
@@ -73,8 +92,24 @@ img {
   font-size: 20px;
   border-radius: 50%;
 }
+.bought .check{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+  background-color: var(--sky);
+  color: #FFF;
+  font-size: 20px;
+  border-radius: 50%;
+}
 
 .added .alert{
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+}
+.bought .alert{
   display: flex;
   flex-direction: column;
   margin: 0 20px;
@@ -133,6 +168,15 @@ img {
   height: 100%;
   width: 100%;
   background-color: var(--primary);
+}
+.move .progress2:before{
+  content:'';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--sky);
 }
  
 .invalidC{
