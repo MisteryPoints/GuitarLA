@@ -17,11 +17,15 @@ function MyApp({ Component, pageProps, initialCarritoValue }) {
  
   useEffect(() => { 
     Cookie.set('carrito', JSON.stringify(carrito))
+    
+    console.log(carrito)  
   }, [carrito]) 
 
   const agregarCarrito = producto => {
-    if (carrito.some( articulo => articulo._id === producto._id)) {
+    console.log(producto)
+    if (carrito.some( articulo => articulo.id === producto.id)) {
       const carritoUpdated = carrito.map ( articulo => {
+        console.log(articulo)
         if ( articulo._id === producto._id ) {
           articulo.cantidad = producto.cantidad + articulo.cantidad
         }

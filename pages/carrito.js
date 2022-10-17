@@ -13,6 +13,8 @@ const Carrito = ({ carrito, handleSum, handleRes, deleteProduct, invalid }) => {
 
         setTotal(calculoTotal)
      }, [carrito])
+
+     console.log(carrito)
     
 
     return (
